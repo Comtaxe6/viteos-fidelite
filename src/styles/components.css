@@ -1,0 +1,503 @@
+/* ==========================================================================
+   COMPOSANTS (Header Desktop/Mobile, Bottom Nav, Modales, Drawer)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   HEADER
+   -------------------------------------------------------------------------- */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .app-header {
+    padding: 14px 24px;
+    border-radius: var(--radius-lg);
+    margin-top: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  .brand-title {
+    font-size: 17px;
+  }
+}
+
+/* Navigation Desktop (Accueil, Quiz, Vision) */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+.desktop-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.desktop-nav-link:hover {
+  color: var(--color-black);
+  background-color: var(--color-bg-body);
+}
+
+.desktop-nav-link.active {
+  color: var(--color-black);
+  background-color: var(--color-bg-body);
+  font-weight: 700;
+}
+
+.desktop-user-badge {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-body);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .desktop-user-badge {
+    display: flex;
+  }
+}
+
+.desktop-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.desktop-user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.desktop-user-points {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+/* Bouton Burger Mobile */
+.header-menu-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+@media (min-width: 768px) {
+  .header-menu-btn {
+    display: none;
+  }
+}
+
+.header-menu-btn:hover {
+  color: var(--color-orange);
+}
+
+/* --------------------------------------------------------------------------
+   DRAWER MOBILE
+   -------------------------------------------------------------------------- */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drawer-panel {
+  width: 80%;
+  max-width: 320px;
+  background-color: var(--color-white);
+  height: 100%;
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.drawer-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+}
+
+.drawer-close-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+.drawer-close-btn:hover {
+  color: var(--color-black);
+}
+
+.drawer-body {
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.drawer-user-card {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.avatar-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drawer-user-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-user-points {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+.drawer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 8px;
+}
+
+.drawer-nav-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: all 0.15s;
+}
+
+.drawer-nav-item:hover, .drawer-nav-item.active {
+  background-color: var(--color-bg-body);
+  color: var(--color-black);
+}
+
+.drawer-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.drawer-footer-btn {
+  width: 100%;
+  text-align: left;
+  padding: 6px 12px;
+  font-size: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+.drawer-footer-btn:hover {
+  color: var(--color-black);
+}
+.drawer-footer-btn.danger {
+  color: var(--color-text-light);
+}
+.drawer-footer-btn.danger:hover {
+  color: var(--color-black);
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM NAVIGATION BAR (Smartphone uniquement)
+   -------------------------------------------------------------------------- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 40;
+}
+
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-light);
+  font-size: 11px;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.bottom-nav-item.active {
+  color: var(--color-black);
+  font-weight: 700;
+}
+
+.bottom-nav-scan-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.scan-icon-bubble {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.1s;
+}
+.scan-icon-bubble:active {
+  transform: scale(0.95);
+}
+
+.scan-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-orange);
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   TOAST NOTIFICATIONS
+   -------------------------------------------------------------------------- */
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  left: auto;
+  transform: none;
+  z-index: 50;
+  width: auto;
+  max-width: 380px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid #333;
+  box-shadow: var(--shadow-lg);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .toast-container {
+    top: 56px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MODALES
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-dialog {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.modal-body {
+  padding: 18px;
+}
+
+.modal-footer {
+  padding: 14px 18px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--color-black);
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: var(--color-bg-body);
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-white);
+  border: none;
+  background-color: var(--color-black);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #333;
+}

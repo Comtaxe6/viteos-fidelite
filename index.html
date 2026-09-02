@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Passeport fidélité - VITEOS</title>
+  <meta name="description" content="Passeport fidélité Viteos Neuchâtel">
+  
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Fichiers CSS modulaires et organisés -->
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/components.css">
+  <link rel="stylesheet" href="src/styles/views.css">
+
+  <!-- React 18 CDN (Standard & Ultra-rapide) -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div class="loading-screen">
+      <div class="spinner anim-spin"></div>
+    </div>
+  </div>
+
+  <!-- 1. Données & Store JS -->
+  <script src="src/data.js"></script>
+  <script src="src/state.js"></script>
+
+  <!-- 2. Application React JS Standard -->
+  <script src="src/app.js"></script>
+</body>
+</html>
