@@ -38,7 +38,7 @@ window.VITEOS_DATA = {
     },
     {
       id: "evt3",
-      title: "HC La Chaux-de-Fonds (HCC) - Match à domicile", e
+      title: "HC La Chaux-de-Fonds (HCC) - Match à domicile",
       date: "17 octobre 2026",
       location: "Patinoire des Mélèzes, La Chaux-de-Fonds",
       pointsReward: 30,
