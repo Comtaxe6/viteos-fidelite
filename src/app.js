@@ -83,11 +83,21 @@ function ProductImageSlot({ image, label }) {
 
 function Header({ user, onOpenProfile, currentTab, setCurrentTab }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
   return h(React.Fragment, null,
     h('header', { className: "app-header" },
       h('div', { className: "brand-wrapper", onClick: () => setCurrentTab('dashboard') },
-        h(ViteosLogoIcon, { className: "brand-icon" }),
+        h('img', {
+          src: "assets/viteos-icon.png",
+          alt: "Viteos",
+          className: "brand-icon brand-icon-mobile"
+        }),
+        h('img', {
+          src: "assets/viteos-logo.png",
+          alt: "Viteos",
+          className: "brand-logo-desktop"
+        }),
         h('h1', { className: "brand-title" }, "Passeport fidélité")
       ),
 
@@ -116,15 +126,7 @@ function Header({ user, onOpenProfile, currentTab, setCurrentTab }) {
         )
       ),
 
-      // Profil badge Desktop
-      h('div', { className: "desktop-user-badge", onClick: onOpenProfile },
-        h('div', { className: "desktop-user-avatar" },
-          h('img', { src: "assets/profile.png", alt: "Profile" })
-        ),
-        h('span', { className: "desktop-user-points" }, `${user.points} pts`)
-      ),
-
-      // Bouton burger Mobile
+      // Bouton menu burger (affiché sur PC et mobile)
       h('button', {
         onClick: () => setDrawerOpen(true),
         className: "header-menu-btn",
@@ -246,14 +248,35 @@ function DashboardView({ user, onClaimReward, onOpenScan, setCurrentTab }) {
           )
         ),
 
-        // Prochains Événements (Liste verticale)
+        // Prochains Événements (Liste verticale avec liens externes officiels)
         h('div', { className: "section-box" },
           h('h2', { className: "section-box-title" }, "Prochains événements"),
           h('div', { className: "events-grid-box" },
             h('div', { className: "events-grid" },
               window.VITEOS_DATA.events.map((evt) =>
-                h('div', { key: evt.id, className: "event-card" },
-                  h('p', { className: "event-title" }, evt.title),
+                h('a', {
+                  key: evt.id,
+                  href: evt.url,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  className: "event-card event-link-card",
+                  title: `Visiter le site officiel : ${evt.title}`
+                },
+                  h('div', { className: "event-title-row" },
+                    h('p', { className: "event-title" }, evt.title),
+                    h('svg', {
+                      className: "event-external-icon",
+                      viewBox: "0 0 20 20",
+                      fill: "currentColor"
+                    },
+                      h('path', {
+                        d: "M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                      }),
+                      h('path', {
+                        d: "M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                      })
+                    )
+                  ),
                   h('p', { className: "event-date" }, evt.date)
                 )
               )
@@ -435,19 +458,43 @@ function QuizView({ user, onAddPoints, onGoHome }) {
 function VisionView() {
   return h('div', { className: "vision-view anim-fade-in" },
     h('div', { className: "manifesto-banner" },
-      h('span', { className: "manifesto-badge" }, "Manifeste"),
-      h('h2', { className: "manifesto-title" }, "La fin des goodies plastiques, la force du lien local."),
-      h('p', { className: "manifesto-text" }, "À Neuchâtel, chaque geste pour l'énergie doit avoir un sens. Viteos transforme le sponsoring en économie circulaire.")
+      h('span', { className: "manifesto-badge" }, "Notre Vision & Engagement"),
+      h('h2', { className: "manifesto-title" }, "Comprendre vos besoins, dynamiser Neuchâtel et faire vivre l'économie circulaire."),
+      h('p', { className: "manifesto-text" },
+        "Ce passeport fidélité réinvente la relation entre Viteos, ses clients et le tissu régional. En ciblant les récompenses qui comptent vraiment pour vous, nous créons un cercle vertueux local et durable pour tout le canton."
+      )
     ),
 
     h('div', { className: "vision-grid" },
       h('div', { className: "vision-card" },
-        h('h3', { className: "vision-card-title" }, "Zéro déchet en événement"),
-        h('p', { className: "vision-card-desc" }, "Des objets utiles conçus pour durer plutôt que des gadgets jetables.")
+        h('h3', { className: "vision-card-title" }, "Comprendre les vraies envies de nos clients"),
+        h('p', { className: "vision-card-desc" },
+          "Finis les objets imposés : cette plateforme permet de mesurer ce qui vous est réellement utile au quotidien et d'adapter en continu nos offres selon vos choix."
+        )
       ),
       h('div', { className: "vision-card" },
-        h('h3', { className: "vision-card-title" }, "100% Neuchâtelois"),
-        h('p', { className: "vision-card-desc" }, "Soutien aux commerces du canton via les bons CID et soutien aux clubs locaux (NUC, HCC).")
+        h('h3', { className: "vision-card-title" }, "Promouvoir les événements régionaux"),
+        h('p', { className: "vision-card-desc" },
+          "Viteos soutient activement la vie neuchâteloise (Fête des Vendanges, HCC, Viteos NUC, BCN Tour). Le passeport encourage la participation aux grands rendez-vous qui font vibrer le canton."
+        )
+      ),
+      h('div', { className: "vision-card" },
+        h('h3', { className: "vision-card-title" }, "Fabrication par des ateliers protégés"),
+        h('p', { className: "vision-card-desc" },
+          "Tous nos goodies sont conçus et confectionnés en partenariat avec des structures d'insertion et ateliers protégés locaux, valorisant l'artisanat social neuchâtelois."
+        )
+      ),
+      h('div', { className: "vision-card" },
+        h('h3', { className: "vision-card-title" }, "Favoriser les commerçants et artisans locaux"),
+        h('p', { className: "vision-card-desc" },
+          "Grâce aux bons d'achat CID (Commerce et Industrie de Neuchâtel), chaque point transformé réinjecte directement du pouvoir d'achat dans les commerces de proximité."
+        )
+      ),
+      h('div', { className: "vision-card" },
+        h('h3', { className: "vision-card-title" }, "Économie circulaire : de l'objet matériel vers l'expérience"),
+        h('p', { className: "vision-card-desc" },
+          "Notre objectif à terme est de réduire progressivement la production de goodies matériels au profit d'expériences locales : billets de match, entrées de piscine, bons commerçants et avantages exclusifs."
+        )
       )
     )
   );
@@ -493,11 +540,11 @@ function CidPartnersModal({ isOpen, onClose }) {
         h('div', { className: "partners-list-container" },
           filteredPartners.length > 0
             ? filteredPartners.map((partner, idx) =>
-                h('div', { key: idx, className: "partner-item" }, partner)
-              )
+              h('div', { key: idx, className: "partner-item" }, partner)
+            )
             : h('p', { style: { fontSize: '12px', color: 'var(--color-text-muted)', textAlign: 'center', padding: '16px' } },
-                "Aucun commerce trouvé correspondant à votre recherche."
-              )
+              "Aucun commerce trouvé correspondant à votre recherche."
+            )
         )
       ),
       h('div', { className: "modal-footer" },

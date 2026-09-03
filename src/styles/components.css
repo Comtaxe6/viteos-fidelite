@@ -34,10 +34,27 @@
   cursor: pointer;
 }
 
-.brand-icon {
+.brand-icon-mobile {
   width: 32px;
   height: 32px;
   object-fit: contain;
+  display: block;
+}
+
+.brand-logo-desktop {
+  display: none;
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .brand-icon-mobile {
+    display: none;
+  }
+  .brand-logo-desktop {
+    display: block;
+  }
 }
 
 .brand-title {
@@ -92,8 +109,19 @@
   font-weight: 700;
 }
 
-.desktop-user-badge {
+.desktop-user-menu-container {
+  position: relative;
   display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-user-menu-container {
+    display: block;
+  }
+}
+
+.desktop-user-badge {
+  display: flex;
   align-items: center;
   gap: 10px;
   padding: 6px 14px;
@@ -101,12 +129,14 @@
   border: 1px solid var(--color-border);
   background-color: var(--color-bg-body);
   cursor: pointer;
+  transition: all 0.15s;
 }
 
-@media (min-width: 768px) {
-  .desktop-user-badge {
-    display: flex;
-  }
+.desktop-user-badge:hover,
+.desktop-user-badge.active {
+  border-color: var(--color-black);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
 }
 
 .desktop-user-avatar {
@@ -127,7 +157,95 @@
   color: var(--color-orange);
 }
 
-/* Bouton Burger Mobile */
+/* Menu Déroulant Profil Desktop */
+.desktop-user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 240px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop-dropdown-header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.desktop-dropdown-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desktop-dropdown-points {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-orange);
+  margin-top: 2px;
+}
+
+.desktop-dropdown-nav {
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop-dropdown-footer {
+  padding-top: 6px;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop-dropdown-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.desktop-dropdown-item:hover {
+  background-color: var(--color-bg-body);
+  color: var(--color-black);
+}
+
+.desktop-dropdown-item.active {
+  color: var(--color-black);
+  font-weight: 700;
+  background-color: var(--color-bg-body);
+}
+
+.desktop-dropdown-item.action {
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.desktop-dropdown-item.danger {
+  color: #EF4444;
+  font-size: 12px;
+}
+.desktop-dropdown-item.danger:hover {
+  background-color: #FEF2F2;
+  color: #DC2626;
+}
+
+/* Bouton Burger (PC et Mobile) */
 .header-menu-btn {
   background: none;
   border: none;
@@ -138,12 +256,6 @@
   align-items: center;
   justify-content: center;
   transition: color 0.15s;
-}
-
-@media (min-width: 768px) {
-  .header-menu-btn {
-    display: none;
-  }
 }
 
 .header-menu-btn:hover {

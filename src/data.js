@@ -8,9 +8,12 @@ window.VITEOS_DATA = {
     points: 0,
     maxPointsTier: 150,
     trophies: [
-      { id: "t1", title: "Fête des vendanges", date: "Septembre 2026", active: true },
+      { id: "t1", title: "Saison 2025/26 - HCC", date: "Janvier 2026", active: true },
       { id: "t2", title: "Playoffs NUC - Match #1", date: "Mars 2026", active: true },
-      { id: "t3", title: "Saison 2026/27 - HCC", date: "Janvier 2026", active: true }
+      { id: "t3", title: "BCN Tour - Étape Neuchâtel", date: "Mai 2026", active: true },
+      { id: "t4", title: "NIFFF - Festival International du Film Fantastique", date: "Juillet 2026", active: true },
+      { id: "t5", title: "Braderie de La Chaux-de-Fonds", date: "Août 2026", active: true },
+      { id: "t6", title: "Fête des vendanges 2025", date: "Septembre 2026", active: true }
     ],
     scannedEvents: ["evt1"],
     claimedRewards: []
@@ -19,31 +22,43 @@ window.VITEOS_DATA = {
   events: [
     {
       id: "evt1",
-      title: "Fête des vendanges 2026",
-      date: "4 - 5 septembre 2026",
+      title: "Fête des Vendanges de Neuchâtel",
+      date: "25 - 27 septembre 2026",
       location: "Neuchâtel",
-      pointsReward: 30
+      pointsReward: 30,
+      url: "https://www.fete-des-vendanges.ch"
     },
     {
       id: "evt2",
-      title: "HCC - HC Ajoie",
-      date: "26 septembre 2026",
-      location: "La Chaux-de-Fonds",
-      pointsReward: 30
+      title: "Viteos NUC Volleyball - Match LNA",
+      date: "10 octobre 2026",
+      location: "Halle de la Riveraine, Neuchâtel",
+      pointsReward: 30,
+      url: "https://nucvolley.ch"
     },
     {
       id: "evt3",
-      title: "NUC - Colombier",
-      date: "12 septembre 2026",
-      location: "Neuchâtel",
-      pointsReward: 30
+      title: "HC La Chaux-de-Fonds (HCC) - Match à domicile",
+      date: "17 octobre 2026",
+      location: "Patinoire des Mélèzes, La Chaux-de-Fonds",
+      pointsReward: 30,
+      url: "https://www.hccnet.ch"
     },
     {
       id: "evt4",
-      title: "Braderie de CDF",
-      date: "30 septembre 2026",
-      location: "La Chaux-de-Fonds",
-      pointsReward: 30
+      title: "Centenaire du Chauffage à Distance (CAD)",
+      date: "7 - 8 novembre 2026",
+      location: "Neuchâtel",
+      pointsReward: 30,
+      url: "https://www.viteos.ch"
+    },
+    {
+      id: "evt5",
+      title: "Marché de Noël & Fêtes de fin d'année",
+      date: "5 - 13 décembre 2026",
+      location: "Place du Port, Neuchâtel",
+      pointsReward: 30,
+      url: "https://www.neuchatelville.ch"
     }
   ],
 
@@ -311,29 +326,89 @@ window.VITEOS_DATA = {
       },
       {
         id: "w5",
-        title: "Billet Match HCC - Patinoire des Mélèzes",
+        title: "Billet Match HCC",
         subtitle: "Place assise",
-        points: 300
+        points: 300,
+        image: "assets/HCC.png"
+      },
+      {
+        id: "w6",
+        title: "Bonnet d'hiver chaud",
+        subtitle: "Tricot doux & éco-responsable",
+        points: 150,
+        image: "assets/hat.png"
+      },
+      {
+        id: "w7",
+        title: "Gants thermiques tactiles",
+        subtitle: "Protection contre le froid",
+        points: 150,
+        image: "assets/gloves.png"
+      },
+      {
+        id: "w8",
+        title: "Tour de cou polaire",
+        subtitle: "Confort hivernal",
+        points: 150,
+        image: "assets/choker.png"
+      },
+      {
+        id: "w9",
+        title: "Mug isotherme réutilisable",
+        subtitle: "Céramique & inox",
+        points: 150,
+        image: "assets/mug.png"
+      },
+      {
+        id: "w10",
+        title: "Sachet de graines mellifères",
+        subtitle: "Biodiversité locale",
+        points: 100,
+        image: "assets/seeds.png"
       }
     ],
     summer: [
       {
-        id: "s2",
-        title: "Protège-gobelet",
-        subtitle: "Silicone réutilisable",
-        points: 150
+        id: "s1",
+        title: "Sablier de douche 4 minutes",
+        subtitle: "Économie d'eau chaude",
+        points: 150,
+        image: "assets/hourglass.png"
+      },
+      {
+        id: "s3",
+        title: "Couvre-selle de vélo imperméable",
+        subtitle: "Protection de selle",
+        points: 150,
+        image: "assets/selle.png"
       },
       {
         id: "s4",
         title: "Entrée Piscine du Nid-du-Crô",
         subtitle: "Piscine de Neuchâtel",
-        points: 180
+        points: 180,
+        image: "assets/NidDuCro.png"
       },
       {
         id: "s5",
-        title: "Billet Match NUC Volleyball - La Riveraine",
+        title: "Billet Match NUC Volleyball",
         subtitle: "Match championnat LNA",
-        points: 250
+        points: 250,
+        image: "assets/NUC.png"
+      },
+      {
+        id: "s6",
+        title: "Mug isotherme réutilisable",
+        subtitle: "Céramique & inox",
+        points: 150,
+        image: "assets/mug.png"
+      },
+      {
+        id: "s7",
+        title: "Sachet de graines mellifères",
+        subtitle: "Biodiversité locale",
+        points: 100,
+        image: "assets/seeds.png"
       }
     ]
   },
