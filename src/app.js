@@ -306,9 +306,12 @@ function DashboardView({ user, onClaimReward, onOpenScan, setCurrentTab }) {
           h('div', { className: "rewards-grid" },
             items.map((item) => {
               const canAfford = user.points >= item.points;
-              return h('div', { key: item.id, className: "reward-card" },
+              return h('div', { key: item.id, className: `reward-card ${item.isLiquidation ? 'is-liquidation' : ''}` },
                 h('div', { className: "reward-info-header" },
-                  h('h3', { className: "reward-title" }, item.title),
+                  h('div', { className: "reward-title-row" },
+                    h('h3', { className: "reward-title" }, item.title),
+                    item.isLiquidation && h('span', { className: "liquidation-badge" }, "Liquidation")
+                  ),
                   h('div', { className: "reward-subtitle-row" },
                     h('span', { className: "reward-subtitle" }, item.subtitle),
                     item.hasInfo && h('button', {
@@ -490,10 +493,10 @@ function VisionView() {
           "Grâce aux bons d'achat CID (Commerce et Industrie de Neuchâtel), chaque point transformé réinjecte directement du pouvoir d'achat dans les commerces de proximité."
         )
       ),
-      h('div', { className: "vision-card" },
+      h('div', { className: "vision-card vision-card-full" },
         h('h3', { className: "vision-card-title" }, "Économie circulaire : de l'objet matériel vers l'expérience"),
         h('p', { className: "vision-card-desc" },
-          "Notre objectif à terme est de réduire progressivement la production de goodies matériels au profit d'expériences locales : billets de match, entrées de piscine, bons commerçants et avantages exclusifs."
+          "Notre objectif à terme est de réduire progressivement la production de goodies matériels au profit d'expériences locales : billets de match, entrées de piscine, bons commerçants et avantages exclusifs. Les goodies signalés en « Liquidation » (bonnets, tours de cou, graines, mugs, gants) sont mis à disposition pour valoriser et écouler le stock existant sans gaspillage, mais ce type d'articles est appelé à disparaître définitivement de notre offre."
         )
       )
     )

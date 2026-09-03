@@ -34,11 +34,11 @@ window.VITEOS_DATA = {
       date: "10 octobre 2026",
       location: "Halle de la Riveraine, Neuchâtel",
       pointsReward: 30,
-      url: "https://nucvolley.ch"
+      url: "https://www.nucvolleyball.ch/"
     },
     {
       id: "evt3",
-      title: "HC La Chaux-de-Fonds (HCC) - Match à domicile",
+      title: "HC La Chaux-de-Fonds (HCC) - Match à domicile", e
       date: "17 octobre 2026",
       location: "Patinoire des Mélèzes, La Chaux-de-Fonds",
       pointsReward: 30,
@@ -336,35 +336,40 @@ window.VITEOS_DATA = {
         title: "Bonnet d'hiver chaud",
         subtitle: "Tricot doux & éco-responsable",
         points: 150,
-        image: "assets/hat.png"
+        image: "assets/hat.png",
+        isLiquidation: true
       },
       {
         id: "w7",
         title: "Gants thermiques tactiles",
         subtitle: "Protection contre le froid",
         points: 150,
-        image: "assets/gloves.png"
+        image: "assets/gloves.png",
+        isLiquidation: true
       },
       {
         id: "w8",
         title: "Tour de cou polaire",
         subtitle: "Confort hivernal",
         points: 150,
-        image: "assets/choker.png"
+        image: "assets/choker.png",
+        isLiquidation: true
       },
       {
         id: "w9",
         title: "Mug isotherme réutilisable",
         subtitle: "Céramique & inox",
         points: 150,
-        image: "assets/mug.png"
+        image: "assets/mug.png",
+        isLiquidation: true
       },
       {
         id: "w10",
         title: "Sachet de graines mellifères",
         subtitle: "Biodiversité locale",
         points: 100,
-        image: "assets/seeds.png"
+        image: "assets/seeds.png",
+        isLiquidation: true
       }
     ],
     summer: [
@@ -401,14 +406,16 @@ window.VITEOS_DATA = {
         title: "Mug isotherme réutilisable",
         subtitle: "Céramique & inox",
         points: 150,
-        image: "assets/mug.png"
+        image: "assets/mug.png",
+        isLiquidation: true
       },
       {
         id: "s7",
         title: "Sachet de graines mellifères",
         subtitle: "Biodiversité locale",
         points: 100,
-        image: "assets/seeds.png"
+        image: "assets/seeds.png",
+        isLiquidation: true
       }
     ]
   },
